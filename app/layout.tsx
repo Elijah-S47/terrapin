@@ -3,8 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const socialPreviewUrl =
-  "https://terrapinmassage.com/images/terrapin-social-preview.jpg";
-const socialPreviewAlt = "Terrapin Massage logo over a massage session photo";
+  "https://terrapinmassage.com/images/ashiatsu-hero.png";
+const socialPreviewAlt =
+  "Massage session in the Terrapin Massage treatment room";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,9 +41,9 @@ export const metadata: Metadata = {
       {
         url: socialPreviewUrl,
         secureUrl: socialPreviewUrl,
-        type: "image/jpeg",
-        width: 1200,
-        height: 630,
+        type: "image/png",
+        width: 1672,
+        height: 941,
         alt: socialPreviewAlt,
       },
     ],
