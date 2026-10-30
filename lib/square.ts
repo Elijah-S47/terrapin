@@ -265,8 +265,16 @@ export async function getAvailableSlots(
   const timeZone = locationResponse.location?.timezone;
   if (!timeZone) throw new Error("Square location has no timezone configured.");
 
-  const startAt = localMidnightAsUtc(shiftCalendarDate(date, -1), timeZone);
-  const endAt = localMidnightAsUtc(shiftCalendarDate(date, 2), timeZone);
+  const now = new Date();
+  const today = dateInTimeZone(now.toISOString(), timeZone);
+  const dayStart = localMidnightAsUtc(date, timeZone);
+  const startAt =
+    date === today
+      ? new Date(now.getTime() + 60_000)
+      : dayStart;
+  const endAt = localMidnightAsUtc(shiftCalendarDate(date, 1), timeZone);
+  if (startAt >= endAt) return [];
+
   const search = await squareRequest<{ availabilities?: Availability[] }>(
     "bookings/availability/search",
     {
