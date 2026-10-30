@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+const socialPreviewUrl =
+  "https://terrapinmassage.com/images/terrapin-social-preview.jpg";
+const socialPreviewAlt = "Terrapin Massage logo over a massage session photo";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -34,10 +38,12 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/images/terrapin-social-preview.png",
+        url: socialPreviewUrl,
+        secureUrl: socialPreviewUrl,
+        type: "image/jpeg",
         width: 1200,
         height: 630,
-        alt: "Terrapin Massage logo over a massage session photo",
+        alt: socialPreviewAlt,
       },
     ],
   },
@@ -46,7 +52,7 @@ export const metadata: Metadata = {
     title: "Terrapin Massage | Casper, Wyoming",
     description:
       "Personalized massage and barefoot bodywork in Casper, Wyoming. Find your service and book a session at Terrapin Massage.",
-    images: ["/images/terrapin-social-preview.png"],
+    images: [{ url: socialPreviewUrl, alt: socialPreviewAlt }],
   },
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
