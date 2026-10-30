@@ -1,3 +1,5 @@
+import ArrowUpRight from "@/components/ArrowUpRight";
+
 export default function Location() {
   return (
     <section
@@ -23,12 +25,10 @@ export default function Location() {
         </div>
         <a
           href="#book"
-          className="inline-flex min-h-14 items-center justify-between gap-8 rounded-full border border-[#394438] px-7 text-xs font-semibold tracking-[.14em] text-[#253126] transition-colors hover:bg-[#e7e5d9]"
+          className="group inline-flex min-h-14 items-center justify-between gap-8 rounded-full border border-[#394438] px-7 text-xs font-semibold tracking-[.14em] text-[#253126] transition-colors hover:bg-[#e7e5d9]"
         >
           APPOINTMENT DETAILS
-          <span aria-hidden="true" className="text-lg">
-            &nearr;
-          </span>
+          <ArrowUpRight />
         </a>
       </div>
     </section>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import ArrowUpRight from "@/components/ArrowUpRight";
 
 type Service = {
   id: string;
@@ -306,25 +307,25 @@ export default function AppointmentBookingForm() {
   }
 
   return (
-    <div className="w-full rounded-2xl bg-[#f8f5ee] p-5 text-[#17201d] shadow-[0_20px_70px_rgba(47,37,29,.12)] sm:p-8 lg:p-10">
+    <div className="w-full rounded-2xl border border-[#f7f0e4]/30 bg-[#101a13]/35 p-5 text-[#f7f0e4] shadow-[0_24px_70px_rgba(5,12,7,.28)] backdrop-blur-xl sm:p-8 lg:p-10">
       {confirmed ? (
         <div
           role="status"
-          className="mx-auto max-w-2xl rounded-xl border border-[#899177]/40 bg-white p-8 text-center"
+          className="mx-auto max-w-2xl rounded-xl border border-[#f7f0e4]/30 bg-[#101a13]/35 p-8 text-center backdrop-blur-xl"
         >
-          <p className="text-xs font-semibold uppercase tracking-[.2em] text-[#747c61]">
+          <p className="text-xs font-semibold uppercase tracking-[.2em] text-[#e2a1a6]">
             You&apos;re booked
           </p>
           <h3 className="mt-4 font-serif text-4xl">Thank you.</h3>
           <p className="mt-4 leading-7">{confirmed}</p>
-          <p className="mt-3 text-sm text-[#62665b]">
+          <p className="mt-3 text-sm text-[#f7f0e4]/70">
             Square will send your appointment confirmation to your email.
           </p>
         </div>
       ) : (
         <div className="mx-auto grid max-w-[1180px] gap-10 lg:grid-cols-[1.05fr_.95fr] lg:gap-14">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[.2em] text-[#747c61]">
+            <p className="text-xs font-semibold uppercase tracking-[.2em] text-[#e2a1a6]">
               01 / Choose your session
             </p>
             <h3 className="mt-3 font-serif text-4xl leading-none sm:text-5xl">
@@ -332,9 +333,9 @@ export default function AppointmentBookingForm() {
             </h3>
 
             {loadingServices ? (
-              <p className="mt-8 text-sm text-[#62665b]">Loading services…</p>
+              <p className="mt-8 text-sm text-[#f7f0e4]/70">Loading services…</p>
             ) : services.length === 0 ? (
-              <p className="mt-8 text-sm text-[#62665b]">
+              <p className="mt-8 text-sm text-[#f7f0e4]/70">
                 No bookable services were returned by Square.
               </p>
             ) : (
@@ -346,8 +347,8 @@ export default function AppointmentBookingForm() {
                       key={service.id}
                       className={`flex cursor-pointer items-center justify-between gap-4 rounded-xl border p-4 transition-colors ${
                         serviceId === service.id
-                          ? "border-[#657052] bg-[#e9e9dc]"
-                          : "border-[#d9d7cc] bg-white hover:border-[#9b9d88]"
+                          ? "border-[#657052] bg-[#e9e9dc] text-[#17201d]"
+                          : "border-[#d9d7cc] bg-[#f8f5ee] text-[#17201d] hover:border-[#9b9d88]"
                       }`}
                     >
                       <input
@@ -393,20 +394,20 @@ export default function AppointmentBookingForm() {
                   setConfirmed("");
                   setError("");
                 }}
-                className="mt-2 block min-h-12 w-full rounded-lg border border-[#d9d7cc] bg-white px-4 text-base"
+                className="mt-2 block min-h-12 w-full rounded-lg border border-[#d9d7cc] bg-[#f8f5ee] px-4 text-base text-[#17201d] scheme-light"
               />
             </div>
 
             <div className="mt-8">
               <p className="text-sm font-semibold">Available times</p>
               {loadingSlots ? (
-                <p className="mt-3 text-sm text-[#62665b]">Checking Square…</p>
+                <p className="mt-3 text-sm text-[#f7f0e4]/70">Checking Square…</p>
               ) : currentAvailability?.error ? (
                 <p role="alert" className="mt-3 text-sm text-[#8b3d42]">
                   {currentAvailability.error}
                 </p>
               ) : slots.length === 0 ? (
-                <p className="mt-3 text-sm text-[#62665b]">
+                <p className="mt-3 text-sm text-[#f7f0e4]/70">
                   No available times for this date. Try another day.
                 </p>
               ) : (
@@ -423,8 +424,8 @@ export default function AppointmentBookingForm() {
                       }}
                       className={`min-h-12 rounded-lg border px-3 text-sm font-semibold transition-colors ${
                         selectedSlot?.startAt === slot.startAt
-                          ? "border-[#394438] bg-[#394438] text-white"
-                          : "border-[#d9d7cc] bg-white hover:border-[#657052]"
+                          ? "border-[#657052] bg-[#e9e9dc] text-[#17201d]"
+                          : "border-[#d9d7cc] bg-[#f8f5ee] text-[#17201d] hover:border-[#9b9d88]"
                       }`}
                     >
                       {formatTime(slot.startAt)}
@@ -435,8 +436,8 @@ export default function AppointmentBookingForm() {
             </div>
           </div>
 
-          <div className="lg:border-l lg:border-[#d9d7cc] lg:pl-10">
-            <p className="text-xs font-semibold uppercase tracking-[.2em] text-[#747c61]">
+          <div className="lg:border-l lg:border-[#f7f0e4]/25 lg:pl-10">
+            <p className="text-xs font-semibold uppercase tracking-[.2em] text-[#e2a1a6]">
               02 / Your details
             </p>
             <h3 className="mt-3 font-serif text-4xl leading-none sm:text-5xl">
@@ -453,7 +454,7 @@ export default function AppointmentBookingForm() {
                       autoComplete="given-name"
                       required
                       maxLength={100}
-                      className="mt-2 min-h-12 w-full rounded-lg border border-[#d9d7cc] bg-white px-3"
+                      className="mt-2 min-h-12 w-full rounded-lg border border-[#d9d7cc] bg-[#f8f5ee] px-3 text-[#17201d]"
                     />
                   </label>
                   <label className="text-sm font-medium">
@@ -463,7 +464,7 @@ export default function AppointmentBookingForm() {
                       autoComplete="family-name"
                       required
                       maxLength={100}
-                      className="mt-2 min-h-12 w-full rounded-lg border border-[#d9d7cc] bg-white px-3"
+                      className="mt-2 min-h-12 w-full rounded-lg border border-[#d9d7cc] bg-[#f8f5ee] px-3 text-[#17201d]"
                     />
                   </label>
                 </div>
@@ -476,7 +477,7 @@ export default function AppointmentBookingForm() {
                     autoComplete="email"
                     required
                     maxLength={254}
-                    className="mt-2 min-h-12 w-full rounded-lg border border-[#d9d7cc] bg-white px-3"
+                    className="mt-2 min-h-12 w-full rounded-lg border border-[#d9d7cc] bg-[#f8f5ee] px-3 text-[#17201d]"
                   />
                 </label>
 
@@ -489,7 +490,7 @@ export default function AppointmentBookingForm() {
                     required
                     maxLength={32}
                     placeholder="+1 (307) 555-0123"
-                    className="mt-2 min-h-12 w-full rounded-lg border border-[#d9d7cc] bg-white px-3"
+                    className="mt-2 min-h-12 w-full rounded-lg border border-[#d9d7cc] bg-[#f8f5ee] px-3 text-[#17201d]"
                   />
                 </label>
 
@@ -499,7 +500,7 @@ export default function AppointmentBookingForm() {
                     name="note"
                     rows={2}
                     maxLength={500}
-                    className="mt-2 w-full rounded-lg border border-[#d9d7cc] bg-white p-3"
+                    className="mt-2 w-full rounded-lg border border-[#d9d7cc] bg-[#f8f5ee] p-3 text-[#17201d]"
                   />
                 </label>
 
@@ -511,7 +512,7 @@ export default function AppointmentBookingForm() {
                   </p>
                   <div
                     id="square-card-container"
-                    className="mt-3 min-h-[48px] rounded-lg border border-[#d9d7cc] bg-white p-3"
+                    className="mt-3 min-h-[48px] rounded-lg border border-[#d9d7cc] bg-[#f8f5ee] p-3"
                   />
                   {sdkError && (
                     <p role="alert" className="mt-2 text-sm text-[#8b3d42]">
@@ -525,7 +526,7 @@ export default function AppointmentBookingForm() {
                   ) : null}
                 </div>
 
-                <div className="space-y-4 rounded-xl bg-[#eeece3] p-4 text-sm leading-6">
+                <div className="space-y-4 rounded-xl border border-[#d9d7cc] bg-[#f8f5ee] p-4 text-sm leading-6 text-[#17201d]">
                   <p>
                     Please cancel or reschedule by 12:00 p.m. Mountain Time on
                     the day before your appointment. A late cancellation may
@@ -580,16 +581,14 @@ export default function AppointmentBookingForm() {
                 <button
                   type="submit"
                   disabled={submitting || !!sdkError || !cardReady}
-                  className="flex min-h-14 w-full items-center justify-between rounded-full bg-[#394438] px-6 text-xs font-semibold tracking-[.12em] text-white transition-colors hover:bg-[#59644d] disabled:cursor-not-allowed disabled:opacity-50"
+                  className="group flex min-h-14 w-full items-center justify-between rounded-full bg-[#e2a1a6] px-6 text-xs font-semibold tracking-[.12em] text-[#242a23] transition-colors hover:bg-[#f0b8bc] disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {submitting
                     ? "SECURELY SUBMITTING…"
                     : `BOOK ${priceLabel(selectedService)}`}
-                  <span aria-hidden="true" className="text-lg">
-                    &nearr;
-                  </span>
+                  <ArrowUpRight />
                 </button>
-                <p className="text-center text-xs text-[#62665b]">
+                <p className="text-center text-xs text-[#f7f0e4]/70">
                   Your card information is handled securely by Square.
                 </p>
               </form>

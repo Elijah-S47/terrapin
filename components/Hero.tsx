@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { Allura, Cormorant_Garamond, Montserrat } from "next/font/google";
+import ArrowUpRight from "@/components/ArrowUpRight";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -14,14 +15,6 @@ const serif = Cormorant_Garamond({
 
 const script = Allura({ subsets: ["latin"], weight: "400" });
 const sans = Montserrat({ subsets: ["latin"], weight: ["400", "500", "600"] });
-
-function ArrowUpRight() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="size-5 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1">
-      <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
 
 function ArrowDown() {
   return (
@@ -62,14 +55,10 @@ export default function Hero() {
       const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
 
       intro
-        .from("[data-bg]", { scale: 1.08, duration: 1.8 })
         .from(
           "[data-tree]",
           {
             opacity: 0,
-            xPercent: 18,
-            scale: 0.92,
-            transformOrigin: "100% 100%",
             duration: 1.8,
           },
           0.15,
@@ -100,15 +89,8 @@ export default function Hero() {
 
       const desktop = gsap.matchMedia();
       desktop.add("(min-width: 768px)", () => {
-        gsap.to("[data-bg]", {
-          yPercent: 7,
-          ease: "none",
-          scrollTrigger: { trigger: hero.current, start: "top top", end: "bottom top", scrub: 1 },
-        });
         gsap.to("[data-tree]", {
-          yPercent: -3,
-          xPercent: 2,
-          scale: 1.035,
+          scale: 1.08,
           ease: "none",
           scrollTrigger: { trigger: hero.current, start: "top top", end: "bottom top", scrub: 1 },
         });
@@ -122,19 +104,8 @@ export default function Hero() {
   return (
     <section
       ref={hero}
-      className={`${sans.className} relative isolate min-h-[100svh] overflow-hidden bg-[#172119] text-[#f7f0e4]`}
+      className={`${sans.className} relative z-10 isolate min-h-[100svh] overflow-hidden bg-transparent text-[#f7f0e4]`}
     >
-      <div data-bg className="absolute -inset-[5%]">
-        <Image
-          src="/images/ashiatsu-hero.png"
-          alt="Barefoot bodywork massage treatment"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[63%_center] sm:object-center"
-        />
-      </div>
-
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,22,15,.82)_0%,rgba(12,22,15,.66)_52%,rgba(12,22,15,.38)_100%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,16,11,.3)_0%,transparent_31%,rgba(8,15,10,.14)_66%,rgba(8,15,10,.6)_100%)]" />
 
@@ -208,7 +179,7 @@ export default function Hero() {
           <div data-reveal className="mt-8 flex w-full max-w-[390px] flex-col gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:gap-4">
             <a
               href="#book"
-              className="group flex min-h-14 w-full items-center justify-between rounded-full bg-[#626b4f] px-7 py-4 text-[11px] font-semibold tracking-[.16em] text-[#242a23] transition hover:bg-[#edc7c5] sm:w-auto sm:min-w-[250px] sm:px-8 sm:text-xs"
+              className="group flex min-h-14 w-full items-center justify-between rounded-full bg-[#e2a1a6] px-7 py-4 text-[11px] font-semibold tracking-[.16em] text-[#242a23] transition hover:bg-[#f0b8bc] sm:w-auto sm:min-w-[250px] sm:px-8 sm:text-xs"
             >
               BOOK NOW
               <ArrowUpRight />
@@ -224,10 +195,6 @@ export default function Hero() {
           </div>
         </div>
 
-        <footer data-reveal className="absolute bottom-6 left-6 flex items-center gap-3 sm:bottom-8 sm:left-10 lg:left-16">
-          <span className={`${serif.className} grid size-11 place-items-center rounded-full border border-[#f7f0e4]/55 bg-black/55 text-xl`}>N</span>
-          <span className="text-[9px] uppercase tracking-[.25em] text-[#f7f0e4]/65 sm:text-[10px]">At Nature&apos;s Pace</span>
-        </footer>
       </div>
     </section>
   );

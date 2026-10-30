@@ -4,14 +4,12 @@ const services = [
     name: "Personalized massage",
     description:
       "A one-on-one session shaped around what your body needs that day, with space to slow down and reset.",
-    note: "A thoughtful reset",
   },
   {
     number: "02",
     name: "Barefoot bodywork",
     description:
       "Ashiatsu-inspired bodywork uses broad, steady pressure to help ease tension and encourage deep relaxation.",
-    note: "Grounded, steady pressure",
   },
 ];
 
@@ -43,9 +41,6 @@ export default function Services() {
         <div className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-[#d7d4c8] md:grid-cols-2">
           {services.map((service) => (
             <article key={service.number} className="bg-[#f8f5ee] p-7 sm:p-10">
-              <p className="text-xs tracking-[.18em] text-[#858674]">
-                {service.number} / {service.note}
-              </p>
               <h3 className="mt-8 font-serif text-3xl sm:text-4xl">
                 {service.name}
               </h3>
