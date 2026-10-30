@@ -1,18 +1,25 @@
 import Hero from "@/components/Hero";
+import Services from "@/components/Services";
+import Pricing from "@/components/Pricing";
+import About from "@/components/About";
+import WhatToExpect from "@/components/WhatToExpect";
+import Testimonials from "@/components/Testimonials";
+import Location from "@/components/Location";
+import BookingCTA from "@/components/BookingCTA";
+import SiteFooter from "@/components/SiteFooter";
 
 export default function Home() {
   return (
-    <main>
+    <main id="top">
       <Hero />
-
-      <section
-        id="benefits"
-        className="min-h-screen bg-[#f2eee5] px-6 py-32 text-[#17201d]"
-      >
-        <h2 className="font-serif text-6xl tracking-tight md:text-8xl">
-          You don’t have to carry it all.
-        </h2>
-      </section>
+      <Services />
+      <Pricing />
+      <About />
+      <WhatToExpect />
+      <Testimonials />
+      <Location />
+      <BookingCTA />
+      <SiteFooter />
     </main>
   );
 }

@@ -15,8 +15,21 @@ const serif = Cormorant_Garamond({
 const script = Allura({ subsets: ["latin"], weight: "400" });
 const sans = Montserrat({ subsets: ["latin"], weight: ["400", "500", "600"] });
 
-const BOOKING_URL =
-  "https://book.squareup.com/appointments/9fgpc4hm6ufnr4/location/LX4AV9V8XWJTQ/services";
+function ArrowUpRight() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="size-5 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1">
+      <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function ArrowDown() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="size-5 shrink-0 transition-transform group-hover:translate-y-1">
+      <path d="M12 5v14m-6-6 6 6 6-6" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
 
 const petals = [
   { left: "63%", top: "28%", size: 12, delay: 0.1, duration: 6.8 },
@@ -118,7 +131,7 @@ export default function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[75%_center] sm:object-center"
+          className="object-cover object-[63%_center] sm:object-center"
         />
       </div>
 
@@ -168,13 +181,16 @@ export default function Hero() {
             </span>
           </a>
 
-          <a href={BOOKING_URL} className="group flex items-center gap-2 text-[12px] font-semibold tracking-[.18em] sm:text-sm" target="_blank" rel="noreferrer">
-            BOOK <span className="text-lg font-light transition-transform group-hover:-translate-y-1 group-hover:translate-x-1">↗</span>
+          <a href="#book" className="group flex items-center gap-2 text-[12px] font-semibold tracking-[.18em] sm:text-sm">
+            BOOK <ArrowUpRight />
           </a>
         </header>
 
         <div className="flex flex-1 flex-col justify-center pb-24 pt-12 sm:pb-28 sm:pt-16 lg:max-w-[760px]">
-          <p data-reveal className="mb-8 max-w-[90%] text-[10px] font-semibold uppercase leading-relaxed tracking-[.25em] text-[#f7f0e4] [text-shadow:0_2px_8px_rgba(8,18,11,1)] sm:text-xs">
+          <p
+            data-reveal
+            className="mb-7 w-fit max-w-[82%] rounded-full border border-[#dbe2cc]/25 bg-[#101a13]/55 px-3.5 py-2 text-[9px] font-semibold uppercase leading-relaxed tracking-[.23em] text-[#e8eddc] shadow-[0_5px_24px_rgba(5,12,7,.24)] backdrop-blur-[3px] sm:mb-8 sm:px-4 sm:text-xs"
+          >
             Grounded healing · Casper, Wyoming
           </p>
 
@@ -189,17 +205,29 @@ export default function Hero() {
             Personalized massage and barefoot bodywork designed to help you release tension, move more freely, and reconnect with your body.
           </p>
 
-          <a
-            data-reveal
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="group mt-9 flex w-fit min-w-[292px] items-center justify-between rounded-full bg-[#f7f0e4] px-8 py-5 text-[12px] font-semibold tracking-[.16em] text-[#242a23] transition hover:bg-[#edc7c5] sm:mt-10 sm:min-w-[360px] sm:px-9 sm:py-6 sm:text-sm"
-          >
-            BOOK YOUR MASSAGE
-            <span className="text-lg font-light transition-transform group-hover:-translate-y-1 group-hover:translate-x-1">↗</span>
-          </a>
+          <div data-reveal className="mt-8 flex w-full max-w-[390px] flex-col gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:gap-4">
+            <a
+              href="#book"
+              className="group flex min-h-14 w-full items-center justify-between rounded-full bg-[#626b4f] px-7 py-4 text-[11px] font-semibold tracking-[.16em] text-[#242a23] transition hover:bg-[#edc7c5] sm:w-auto sm:min-w-[250px] sm:px-8 sm:text-xs"
+            >
+              BOOK NOW
+              <ArrowUpRight />
+            </a>
+
+            <a
+              href="#explore"
+              className="group flex min-h-14 w-full items-center justify-between rounded-full border border-[#f7f0e4]/65 bg-[#132018]/45 px-7 py-4 text-[11px] font-semibold tracking-[.14em] text-[#f7f0e4] backdrop-blur-sm transition hover:border-[#e3a2a7] hover:bg-[#e3a2a7]/15 sm:w-auto sm:min-w-[230px] sm:px-8 sm:text-xs"
+            >
+              EXPLORE TERRAPIN
+              <ArrowDown />
+            </a>
+          </div>
         </div>
+
+        <footer data-reveal className="absolute bottom-6 left-6 flex items-center gap-3 sm:bottom-8 sm:left-10 lg:left-16">
+          <span className={`${serif.className} grid size-11 place-items-center rounded-full border border-[#f7f0e4]/55 bg-black/55 text-xl`}>N</span>
+          <span className="text-[9px] uppercase tracking-[.25em] text-[#f7f0e4]/65 sm:text-[10px]">At Nature&apos;s Pace</span>
+        </footer>
       </div>
     </section>
   );
