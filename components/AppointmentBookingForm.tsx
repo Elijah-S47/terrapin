@@ -379,7 +379,7 @@ export default function AppointmentBookingForm() {
               </fieldset>
             )}
 
-            <div className="mt-8">
+            <div className="mt-8 min-w-0">
               <label htmlFor="appointment-date" className="text-sm font-semibold">
                 Date
               </label>
@@ -394,7 +394,7 @@ export default function AppointmentBookingForm() {
                   setConfirmed("");
                   setError("");
                 }}
-                className="mt-2 block min-h-12 w-full rounded-lg border border-[#d9d7cc] bg-[#f8f5ee] px-4 text-base text-[#17201d] scheme-light"
+                className="mt-2 block min-h-12 w-full min-w-0 max-w-full box-border rounded-lg border border-[#d9d7cc] bg-[#f8f5ee] px-4 text-base text-[#17201d] scheme-light"
               />
             </div>
 
