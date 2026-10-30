@@ -347,8 +347,8 @@ export default function AppointmentBookingForm() {
                       key={service.id}
                       className={`flex cursor-pointer items-center justify-between gap-4 rounded-xl border p-4 transition-colors ${
                         serviceId === service.id
-                          ? "border-[#657052] bg-[#e9e9dc] text-[#17201d]"
-                          : "border-[#d9d7cc] bg-[#f8f5ee] text-[#17201d] hover:border-[#9b9d88]"
+                          ? "border-[#394438] bg-[#d1d2c2] text-[#17201d]"
+                          : "border-[#d9d7cc] bg-[#f8f5ee] text-[#17201d] hover:border-[#9b9d88] active:bg-[#e3e1d6]"
                       }`}
                     >
                       <input
@@ -424,8 +424,8 @@ export default function AppointmentBookingForm() {
                       }}
                       className={`min-h-12 rounded-lg border px-3 text-sm font-semibold transition-colors ${
                         selectedSlot?.startAt === slot.startAt
-                          ? "border-[#657052] bg-[#e9e9dc] text-[#17201d]"
-                          : "border-[#d9d7cc] bg-[#f8f5ee] text-[#17201d] hover:border-[#9b9d88]"
+                          ? "border-[#394438] bg-[#d1d2c2] text-[#17201d]"
+                          : "border-[#d9d7cc] bg-[#f8f5ee] text-[#17201d] hover:border-[#9b9d88] active:bg-[#e3e1d6]"
                       }`}
                     >
                       {formatTime(slot.startAt)}
@@ -581,7 +581,7 @@ export default function AppointmentBookingForm() {
                 <button
                   type="submit"
                   disabled={submitting || !!sdkError || !cardReady}
-                  className="group flex min-h-14 w-full items-center justify-between rounded-full bg-[#e2a1a6] px-6 text-xs font-semibold tracking-[.12em] text-[#242a23] transition-colors hover:bg-[#f0b8bc] disabled:cursor-not-allowed disabled:opacity-50"
+                  className="group flex min-h-14 w-full items-center justify-between rounded-full bg-[#e2a1a6] px-6 text-xs font-semibold tracking-[.12em] text-[#242a23] transition-colors hover:bg-[#f0b8bc] active:bg-[#c8868d] disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {submitting
                     ? "SECURELY SUBMITTING…"
