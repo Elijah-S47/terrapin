@@ -16,12 +16,12 @@ export default function Location() {
             id="location-heading"
             className="mt-4 font-serif text-5xl leading-none tracking-[-.04em] sm:text-6xl"
           >
-            Rooted in Casper, Wyoming.
+            Terrapin Massage in Casper, Wyoming.
           </h2>
           <div className="mt-5 max-w-[600px] space-y-2 leading-7 text-[#4c5148]">
             <p>
-              Located inside Lifetime Fitness. You do not need a membership to
-              be a client.
+              Visit Terrapin Massage inside Lifetime Fitness. You do not need
+              a gym membership to book a session.
             </p>
             <a
               href="https://maps.google.com/?q=300+Landmark+Dr,+Casper,+WY+82609"

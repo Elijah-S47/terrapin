@@ -13,9 +13,9 @@ const steps = [
   },
   {
     number: "03",
-    title: "Take your time",
+    title: "During your session",
     description:
-      "There is room to ease in and check in afterward. Your comfort matters before, during, and after the session.",
+      "Appointments follow their scheduled length. Let Crystal know during your session if anything needs adjusting.",
   },
 ];
 

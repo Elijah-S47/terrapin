@@ -7,6 +7,31 @@ const socialPreviewUrl =
 const socialPreviewAlt =
   "Massage session in the Terrapin Massage treatment room";
 
+const businessStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "MassageTherapist",
+  "@id": "https://terrapinmassage.com/#business",
+  name: "Terrapin Massage",
+  url: "https://terrapinmassage.com/",
+  image: socialPreviewUrl,
+  telephone: "+18339047267",
+  description:
+    "Personalized massage and barefoot bodywork in Casper, Wyoming.",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "300 Landmark Dr",
+    addressLocality: "Casper",
+    addressRegion: "WY",
+    postalCode: "82609",
+    addressCountry: "US",
+  },
+  areaServed: {
+    "@type": "City",
+    name: "Casper",
+  },
+  hasMap: "https://maps.google.com/?q=300+Landmark+Dr,+Casper,+WY+82609",
+};
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -42,8 +67,8 @@ export const metadata: Metadata = {
         url: socialPreviewUrl,
         secureUrl: socialPreviewUrl,
         type: "image/png",
-        width: 1672,
-        height: 941,
+        width: 1600,
+        height: 900,
         alt: socialPreviewAlt,
       },
     ],
@@ -67,7 +92,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(businessStructuredData),
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
