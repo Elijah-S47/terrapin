@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const socialPreviewUrl =
-  "https://terrapinmassage.com/images/ashiatsu-hero.png";
+  "https://terrapinmassage.com/images/terrapin-message-preview.jpg";
 const socialPreviewAlt =
   "Massage session in the Terrapin Massage treatment room";
 
@@ -66,9 +66,9 @@ export const metadata: Metadata = {
       {
         url: socialPreviewUrl,
         secureUrl: socialPreviewUrl,
-        type: "image/png",
-        width: 1600,
-        height: 900,
+        type: "image/jpeg",
+        width: 1200,
+        height: 630,
         alt: socialPreviewAlt,
       },
     ],
