@@ -22,6 +22,17 @@ export default function BookingCTA() {
           >
             Make a little space for yourself.
           </h2>
+          <p className="mt-5 max-w-[720px] leading-7 text-[#f7f0e4]/85">
+            Need a time or day that isn&apos;t listed? Call or text and Crystal
+            will do her best to accommodate your schedule:{" "}
+            <a
+              href="tel:+18339047267"
+              className="font-semibold text-[#f0b8bc] underline decoration-[#f0b8bc]/60 underline-offset-4 transition-colors hover:text-white"
+            >
+              (833) 904-7267
+            </a>
+            .
+          </p>
         </div>
         <AppointmentBookingForm />
       </div>

@@ -18,10 +18,22 @@ export default function Location() {
           >
             Rooted in Casper, Wyoming.
           </h2>
-          <p className="mt-5 max-w-[600px] leading-7 text-[#4c5148]">
-            Check the booking page for available appointments and current
-            location details.
-          </p>
+          <div className="mt-5 max-w-[600px] space-y-2 leading-7 text-[#4c5148]">
+            <p>
+              Located inside Lifetime Fitness. You do not need a membership to
+              be a client.
+            </p>
+            <a
+              href="https://maps.google.com/?q=300+Landmark+Dr,+Casper,+WY+82609"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex underline decoration-[#9b9d88] underline-offset-4 transition-colors hover:text-[#17201d]"
+            >
+              300 Landmark Dr
+              <br />
+              Casper, WY 82609
+            </a>
+          </div>
         </div>
         <a
           href="#book"
