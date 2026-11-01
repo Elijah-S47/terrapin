@@ -45,7 +45,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://terrapinmassage.com"),
   title: {
-    default: "Terrapin Massage | Casper, Wyoming",
+    default: "Terrapin Massage",
     template: "%s | Terrapin Massage",
   },
   description:
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "/",
     siteName: "Terrapin Massage",
-    title: "Terrapin Massage | Casper, Wyoming",
+    title: "Terrapin Massage",
     description:
       "Personalized massage and barefoot bodywork in Casper, Wyoming. Find your service and book a session at Terrapin Massage.",
     locale: "en_US",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Terrapin Massage | Casper, Wyoming",
+    title: "Terrapin Massage",
     description:
       "Personalized massage and barefoot bodywork in Casper, Wyoming. Find your service and book a session at Terrapin Massage.",
     images: [{ url: socialPreviewUrl, alt: socialPreviewAlt }],
